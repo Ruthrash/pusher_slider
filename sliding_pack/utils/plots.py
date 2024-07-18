@@ -63,7 +63,7 @@ def plot_nominal_traj(x_data, y_data,
         window_title='Nominal Trajectory',
         plot_title='Pusher-Slider Motion Animation'):
     fig, ax = plt.subplots()
-    fig.canvas.set_window_title(window_title)
+    # fig.canvas.set_window_title(window_title)
     ax.plot(x_data, y_data, color='red', linewidth=2.0, linestyle='dashed')
     # plot initial and final positions
     ax.plot(x_data[0], y_data[0], x_data[-1], y_data[-1], marker='o', color='red')

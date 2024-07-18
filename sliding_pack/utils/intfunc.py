@@ -37,7 +37,7 @@ DY = yLenght/(N*M)
 # -------------------------------------------------------------------
 # 1D casadi integration of g
 # cost function
-g = cs.Function('g_ext', [x], [DX, (x**2)*DX])
+g = cs.Function('g_ext', [x], [DX, (x**2)*DX], {"allow_free":True})
 Q = 0  # initialize cost
 xx = -xLenght/2  # initialize initial cond
 for n in range(N):
@@ -51,7 +51,7 @@ for n in range(N):
 quad_cs = cs.Function('quad_cs', [xLenght], [Q])
 # -------------------------------------------------------------------
 # 2D casadi integration of g
-g = cs.Function('h_ext', [x, y], [DX, DY, (cs.sqrt((x**2)+(y**2)))*DX*DY])
+g = cs.Function('h_ext', [x, y], [DX, DY, (cs.sqrt((x**2)+(y**2)))*DX*DY], {"allow_free":True})
 Q = 0  # initialize cost
 yy = -yLenght/2  # initialize initial cond
 for ny in range(N):
