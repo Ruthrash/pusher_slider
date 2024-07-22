@@ -3,8 +3,8 @@
 # 
 
 dynamics:
-    xLenght: 0.07 #  [meter]
-    yLenght: 0.09 #  [meter]
+    xLenght: 0.05 #  [meter]
+    yLenght: 0.05 #  [meter]
     pusherRadious: 0.01 #  [meter]
     pusherFricCoef: 0.2
     pusherForceLim:  0.3
@@ -13,11 +13,11 @@ dynamics:
     Kz_min: 0.1
 
 TO:
-    contactMode: 'sliding_cc_slack'  # 'sticking', 'sliding_cc', 'sliding_cc_slack', or 'sliding_mi'
+    contactMode: 'sticking'  # 'sticking', 'sliding_cc', 'sliding_cc_slack', or 'sliding_mi'
     # contactMode: 'sliding_mi'  # 'sticking', 'sliding_cc', 'sliding_cc_slack', or 'sliding_mi'
-    solverName: 'qpoases'  # 'ipopt', 'snopt', 'gurobi', 'qpoases', 'knitro'
+    solverName: 'ipopt'  # 'ipopt', 'snopt', 'gurobi', 'qpoases', 'knitro'
     # solverName: 'gurobi'  # 'ipopt', 'snopt', 'gurobi', 'qpoases', 'knitro'
-    W_x: [1.0, 1.0, 0.01, 0.]  # diagonal state weights
+    W_x: [0.1, 0.1, 0.1, 0.]  # diagonal state weights
     W_u: [0.01, 0.01, 0., 0.]  # diagonal control weights
     # W_u: [0.0, 0.0, 0.0, 0.]  # diagonal control weights
     K_goal: 10

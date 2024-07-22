@@ -28,12 +28,12 @@ planning_config = sliding_pack.load_config('nom_config.yaml')
 
 # Set Problem constants
 #  -------------------------------------------------------------------
-T = 10  # time of the simulation is seconds
-freq = 25  # number of increments per second
+T = 15  # time of the simulation is seconds
+freq = 100  # number of increments per second
 # N_MPC = 12 # time horizon for the MPC controller
-N_MPC = 25  # time horizon for the MPC controller
+N_MPC = 100  # time horizon for the MPC controller
 # x_init_val = [-0.03, 0.03, 30*(np.pi/180.), 0]
-x_init_val = [0., 0., 45*(np.pi/180.), 0]
+x_init_val = [0.0, 0.0, 45*(np.pi/180.), 0]
 show_anim = True
 save_to_file = False
 #  -------------------------------------------------------------------
@@ -62,10 +62,13 @@ X_goal = tracking_config['TO']['X_goal']
 # x0_nom, x1_nom = sliding_pack.traj.generate_traj_line(0.5, 0.3, N, N_MPC)
 # x0_nom, x1_nom = sliding_pack.traj.generate_traj_circle(-np.pi/2, 3*np.pi/2, 0.2, N, N_MPC)
 # x0_nom, x1_nom = sliding_pack.traj.generate_traj_ellipse(-np.pi/2, 3*np.pi/2, 0.2, 0.1, N, N_MPC)
-x0_nom, x1_nom = sliding_pack.traj.generate_traj_eight(0.3, N, N_MPC)
+# x0_nom, x1_nom = sliding_pack.traj.generate_traj_eight(0.3, N, N_MPC)
 #  -------------------------------------------------------------------
 # stack state and derivative of state
-X_nom_val, _ = sliding_pack.traj.compute_nomState_from_nomTraj(x0_nom, x1_nom, dt)
+# X_nom_val, _ = sliding_pack.traj.compute_nomState_from_nomTraj(x0_nom, x1_nom, dt)
+
+x0_nom, x1_nom, x2_nom, X_nom_val, _ = sliding_pack.traj.generate_traj_from_tamp(numpy_file="/root/scratchpad/traj_pos_left.npy",N=N, N_MPC=N_MPC, dt=dt)
+
 #  ------------------------------------------------------------------
 
 
